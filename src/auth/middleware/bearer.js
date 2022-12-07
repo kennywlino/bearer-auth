@@ -8,7 +8,6 @@ module.exports = async (req, res, next) => {
 
     if (!req.headers.authorization) { next('Invalid Login') }
 
-    console.log('AUTHORIZATION>>>', req.headers.authorization);
     const token = req.headers.authorization.split(' ').pop();
     const validUser = await users.authenticateToken(token);
 
